@@ -4,19 +4,44 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Scanner;
 
+import com.datang.model.Admin;
 import com.mysql.jdbc.PreparedStatement;
 
 public class AdminRegister {//管理员注册
 	public void adminRegister() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("请输入添加的管理员账号:");//需验证管理员账号是否数据库中存在用executeQuery()返回数据库里的所有账号信息,
-												//然后用循环与输入的账号做匹配,如果没有一样的账号就能插入信息到数据库,否则让他更改账号
+											//然后用循环与输入的账号做匹配,如果没有一样的账号就能插入信息到数据库,否则让他更改账号
 		String acc_number = input.nextLine();
+		
+		
 		System.out.println("请输入添加的管理员密码:");
 		String acc_pwd = input.nextLine();
-		System.out.println("请输入添加的管理员手机号:");
-		String phone = input.nextLine().trim();
 		
+		
+		System.out.println("请输入添加的管理员手机号:");
+		Admin admin = new Admin();
+		admin.setPhone(input.nextLine().trim()) ;
+		VerifyPhone verifyPhone = new VerifyPhone();
+		int returnNumber = verifyPhone.verifyPhone(admin.getPhone()) ;
+		while(returnNumber == 0 || returnNumber == 1 || returnNumber == 2){
+			if(returnNumber == 0 ){
+				System.err.println("您输入的手机号为空!请重新输入:");
+				admin.setPhone(input.nextLine().trim()) ;
+				returnNumber = verifyPhone.verifyPhone(admin.getPhone()) ;
+			}else if(returnNumber == 1 ){
+				System.err.println("您输入的手机号不为11位!请重新输入:");
+				admin.setPhone(input.nextLine().trim()) ;
+				returnNumber = verifyPhone.verifyPhone(admin.getPhone()) ;
+				
+			}else if (returnNumber == 2) {
+				System.err.println("您输入的不是真实手机号!请重新输入:");
+				admin.setPhone(input.nextLine().trim()) ;
+				returnNumber = verifyPhone.verifyPhone(admin.getPhone()) ;
+			}else {
+				
+			}
+		}
 		
 		
 		
@@ -47,7 +72,7 @@ public class AdminRegister {//管理员注册
 			//6.执行sql语句
 			ps.setString(1, acc_number);
 			ps.setString(2, acc_pwd);
-			ps.setString(3, phone);
+			ps.setString(3, admin.getPhone());
 			ps.setString(4, mibao_Q);
 			ps.setString(5, mibao);
 			int res =ps.executeUpdate();
@@ -64,7 +89,7 @@ public class AdminRegister {//管理员注册
 						Scanner admininput = new Scanner(System.in);
 						String change =admininput.nextLine();
 						if (change.equals("1")) {
-							Adminlogin.adminlogin();
+							Adminsystem.adminSystem();
 						} else if (change.equals("2")) {
 							
 							Main.Login();

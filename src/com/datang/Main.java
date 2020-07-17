@@ -24,8 +24,8 @@ public class Main {
 			
 			input = new Scanner(System.in);
 			System.out.println("请选择您要执行的操作");
-			System.out.println("1.管理员登录");
-			System.out.println("2.用户登录");
+			System.out.println("1.管理员登录程序");
+			System.out.println("2.用户登录程序");
 			System.out.println("3.退出系统");
 			String change = input.nextLine(); 
 			
