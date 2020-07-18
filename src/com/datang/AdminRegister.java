@@ -8,9 +8,12 @@ import com.datang.model.Admin;
 import com.mysql.jdbc.PreparedStatement;
 
 public class AdminRegister {//管理员注册
+	private Scanner input;
+private Scanner admininput;
+
 	public void adminRegister() {
 		Admin admin = new Admin();
-		Scanner input = new Scanner(System.in);
+		input = new Scanner(System.in);
 		System.out.println("请输入添加的管理员账号:");//需验证管理员账号是否数据库中存在用executeQuery()返回数据库里的所有账号信息,
 											//然后用循环与输入的账号做匹配,如果没有一样的账号就能插入信息到数据库,否则让他更改账号
 		String acc_number = input.nextLine();
@@ -34,18 +37,18 @@ public class AdminRegister {//管理员注册
 		System.out.println("请再输入一次要添加的管理员密码:");
 		String verifyConfirm = input.nextLine().trim();
 		while(!admin.getAcc_pwd().equals(verifyConfirm)){
-			System.err.println("两次输入的密码不一致,请重新输入第一次密码!1");
+			System.err.println("两次输入的密码不一致,请重新输入第一次密码!");
 			//System.out.println("请输入密码1:");
 			admin.setAcc_pwd(input.nextLine().trim());
 			verifyPwd = new VerifyPwd();
 			returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
 			while(returnPwd == 0 || returnPwd == 1 ){
 				if (returnPwd == 0) {
-					System.err.println("1您输入的密码为空,请重新输入!");
+					System.err.println("您输入的密码为空,请重新输入!");
 					admin.setAcc_pwd(input.nextLine().trim());
 					returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
 				}else if(returnPwd == 1){
-					System.err.println("1您输入的密码不满足6-16位,请重新输入!");
+					System.err.println("您输入的密码不满足6-16位,请重新输入!");
 					admin.setAcc_pwd(input.nextLine().trim());
 					returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
 				}
@@ -79,11 +82,26 @@ public class AdminRegister {//管理员注册
 			}
 		}
 		
-		//密保部分不需要验证内容
+		//密保问题不为空
 		System.out.println("请输入添加的管理员密保问题:");
-		String mibao_Q = input.nextLine();
+		admin.setMibao_Q(input.nextLine().trim());
+		VerifyMibao_Q verifyMibao_Q = new VerifyMibao_Q();
+		int returnmbQ = verifyMibao_Q.verifyMibao_Q(admin.getMibao_Q());
+		while(returnmbQ ==0){
+			System.err.println("您输入的密保为空,请重新输入!");
+			admin.setMibao_Q(input.nextLine().trim());
+			returnmbQ = verifyMibao_Q.verifyMibao_Q(admin.getMibao_Q());
+		}
+		//密保答案不为空
 		System.out.println("请输入添加的管理员密保答案:");
-		String mibao = input.nextLine();
+		admin.setMibao(input.nextLine().trim());
+		VerifyMibao verifyMibao = new VerifyMibao();
+		int returnmb = verifyMibao.verifyMibao(admin.getMibao());
+		while(returnmb ==0){
+			System.err.println("您输入的密保答案为空,请重新输入!");
+			admin.setMibao(input.nextLine().trim());
+			returnmb = verifyMibao.verifyMibao(admin.getMibao());
+		}
 
 		try {
 			// 2.注册驱动
@@ -102,8 +120,8 @@ public class AdminRegister {//管理员注册
 			ps.setString(1, acc_number);
 			ps.setString(2, admin.getAcc_pwd());
 			ps.setString(3, admin.getPhone());
-			ps.setString(4, mibao_Q);
-			ps.setString(5, mibao);
+			ps.setString(4, admin.getMibao_Q());
+			ps.setString(5, admin.getMibao());
 			int res =ps.executeUpdate();
 			 //System.out.println(res);
 			//7.查看返回结果
@@ -116,23 +134,22 @@ public class AdminRegister {//管理员注册
 						System.out.println("您的管理员账号为:"+acc_number);
 						System.out.println("您的密码为:"+admin.getAcc_pwd());
 						System.out.println("您的注册手机号为:"+admin.getPhone());
-						System.out.println("您的密保答案为"+mibao);
+						System.out.println("您的密保问题为:"+admin.getMibao_Q());
+						System.out.println("您的密保答案为"+admin.getMibao());
 						System.out.println("==================================");
 				 
 						System.out.println("是否返回登录管理员账号?");
 						System.out.println("1.返回管理员登录");
 						System.out.println("2.返回主界面");
 						System.out.println("3.退出系统");
-						Scanner admininput = new Scanner(System.in);
+						admininput = new Scanner(System.in);
 						String change =admininput.nextLine();
 						if (change.equals("1")) {
 							Adminsystem.adminSystem();
 						} else if (change.equals("2")) {
-							
 							Main.Login();
 						} else if (change.equals("3")) {
 							Thread thread = new Thread();
-							
 							thread.sleep(800);//暂停0.8S
 							System.out.println("系统退出成功!感谢您的使用!期待下次与您相伴!^_^");
 							System.exit(-1);
