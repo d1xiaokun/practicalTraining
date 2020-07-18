@@ -7,10 +7,10 @@ public class Admin {
 	private String phone;
 	private String mibao_Q;
 	private String mibao;
-	public String getAcc_acc_number() {
+	public String getAcc_number() {
 		return acc_number;
 	}
-	public void setAcc_acc_number(String acc_number) {
+	public void setAcc_number(String acc_number) {
 		this.acc_number = acc_number;
 	}
 	public String getAcc_pwd() {
@@ -37,4 +37,5 @@ public class Admin {
 	public void setMibao(String mibao) {
 		this.mibao = mibao;
 	}
+	
 }

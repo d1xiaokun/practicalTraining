@@ -9,18 +9,54 @@ import com.mysql.jdbc.PreparedStatement;
 
 public class AdminRegister {//管理员注册
 	public void adminRegister() {
+		Admin admin = new Admin();
 		Scanner input = new Scanner(System.in);
 		System.out.println("请输入添加的管理员账号:");//需验证管理员账号是否数据库中存在用executeQuery()返回数据库里的所有账号信息,
 											//然后用循环与输入的账号做匹配,如果没有一样的账号就能插入信息到数据库,否则让他更改账号
 		String acc_number = input.nextLine();
 		
-		
+		//密码注册验证内容部分
 		System.out.println("请输入添加的管理员密码:");
-		String acc_pwd = input.nextLine();
+		admin.setAcc_pwd(input.nextLine().trim());
+		VerifyPwd verifyPwd = new VerifyPwd();
+		int returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
+		while(returnPwd == 0 || returnPwd == 1 ){
+			if (returnPwd == 0) {
+				System.err.println("您输入的密码为空,请重新输入!");
+				admin.setAcc_pwd(input.nextLine().trim());
+				returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
+			}else if(returnPwd == 1){
+				System.err.println("您输入的密码不满足6-16位,请重新输入!");
+				admin.setAcc_pwd(input.nextLine().trim());
+				returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
+			}
+		}
+		System.out.println("请再输入一次要添加的管理员密码:");
+		String verifyConfirm = input.nextLine().trim();
+		while(!admin.getAcc_pwd().equals(verifyConfirm)){
+			System.err.println("两次输入的密码不一致,请重新输入第一次密码!1");
+			//System.out.println("请输入密码1:");
+			admin.setAcc_pwd(input.nextLine().trim());
+			verifyPwd = new VerifyPwd();
+			returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
+			while(returnPwd == 0 || returnPwd == 1 ){
+				if (returnPwd == 0) {
+					System.err.println("1您输入的密码为空,请重新输入!");
+					admin.setAcc_pwd(input.nextLine().trim());
+					returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
+				}else if(returnPwd == 1){
+					System.err.println("1您输入的密码不满足6-16位,请重新输入!");
+					admin.setAcc_pwd(input.nextLine().trim());
+					returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
+				}
+			}
+			System.out.println("1请再输入一次要添加的管理员密码:");
+			verifyConfirm = input.nextLine();
+		}
 		
 		
+		//手机号注册验证内容部分
 		System.out.println("请输入添加的管理员手机号:");
-		Admin admin = new Admin();
 		admin.setPhone(input.nextLine().trim()) ;
 		VerifyPhone verifyPhone = new VerifyPhone();
 		int returnNumber = verifyPhone.verifyPhone(admin.getPhone()) ;
@@ -43,14 +79,7 @@ public class AdminRegister {//管理员注册
 			}
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		//密保部分不需要验证内容
 		System.out.println("请输入添加的管理员密保问题:");
 		String mibao_Q = input.nextLine();
 		System.out.println("请输入添加的管理员密保答案:");
@@ -71,17 +100,25 @@ public class AdminRegister {//管理员注册
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			//6.执行sql语句
 			ps.setString(1, acc_number);
-			ps.setString(2, acc_pwd);
+			ps.setString(2, admin.getAcc_pwd());
 			ps.setString(3, admin.getPhone());
 			ps.setString(4, mibao_Q);
 			ps.setString(5, mibao);
 			int res =ps.executeUpdate();
-			 System.out.println(res);
+			 //System.out.println(res);
 			//7.查看返回结果
 			 
 				// while(res != 0||change != "1"){
 					if(res != 0 ){
-				 System.out.println("管理员注册成功!");
+						System.out.println("==================================");
+						System.out.println("管理员注册成功!请牢记您的信息!");
+						//显示一下管理员注册信息
+						System.out.println("您的管理员账号为:"+acc_number);
+						System.out.println("您的密码为:"+admin.getAcc_pwd());
+						System.out.println("您的注册手机号为:"+admin.getPhone());
+						System.out.println("您的密保答案为"+mibao);
+						System.out.println("==================================");
+				 
 						System.out.println("是否返回登录管理员账号?");
 						System.out.println("1.返回管理员登录");
 						System.out.println("2.返回主界面");
@@ -105,6 +142,7 @@ public class AdminRegister {//管理员注册
 							//Login();//若输入不在选项继续循环当前模块
 						}
 					}else {
+						//执行sql语句失败
 						System.err.println("管理员注册失败!");
 						System.out.println("即将返回重新注册");
 						adminRegister();
