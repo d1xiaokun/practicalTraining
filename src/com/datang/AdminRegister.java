@@ -53,9 +53,9 @@ private Scanner admininput;
 					returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd()) ;
 				}
 			}
-			System.out.println("1请再输入一次要添加的管理员密码:");
+			System.out.println("请再输入一次要添加的管理员密码:");
 			verifyConfirm = input.nextLine();
-		}
+		} 
 		
 		
 		//手机号注册验证内容部分
