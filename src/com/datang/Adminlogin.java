@@ -34,16 +34,16 @@ public class Adminlogin {
 				System.err.println("55您輸入的密码为空!请您重新输入密码:");
 				mima = input.nextLine().trim();
 				getverifiedm = verifyNumber.verifyNumber(mima);
-			}
-				}
-			}else if (getverified == 1) {
+			
+				
+			}else if (getverifiedm == 1) {
 				System.err.println("66您輸入的密码长度不符合!请您重新输入账号:");
 				mima = input.nextLine().trim();
 				getverifiedm = verifyNumber.verifyNumber(mima);
 				
 				}
 			}
-		}
+		
 		UnifiedAccountPassword uap = new UnifiedAccountPassword();
 		int re=uap.verify(zhanghao, mima);
 		while(re != 0){
@@ -76,23 +76,23 @@ public class Adminlogin {
 							System.err.println("53您輸入的密码为空!请您重新输入密码:");
 							mima = input.nextLine().trim();
 							getverifiedm = verifyNumber.verifyNumber(mima);
-						}else if (getverified == 1) {
-							System.err.println("65您輸入的密码长度不符合!请您重新输入账号:");
+						}else if (getverifiedm == 1) {
+							System.err.println("65您輸入的密码长度不符合!请您重新输入密码:");
 							mima = input.nextLine().trim();
 							getverifiedm = verifyNumber.verifyNumber(mima);
 						}
 					}
-				}else if (getverified == 1) {
-					System.err.println("-6您輸入的密码长度不符合!请您重新输入账号:");
+				}else if (getverifiedm == 1) {
+					System.err.println("-6您輸入的密码长度不符合!请您重新输入密码:");
 					mima = input.nextLine().trim();
-					getverifiedm = verifyNumber.verifyNumber(mima);
+					getverified = verifyNumber.verifyNumber(mima);
 					while(getverifiedm == 0 || getverifiedm == 1){
 						if (getverifiedm == 0) {
 							System.err.println("5/您輸入的密码为空!请您重新输入密码:");
 							mima = input.nextLine().trim();
 							getverifiedm = verifyNumber.verifyNumber(mima);
-						}else if (getverified == 1) {
-							System.err.println("6*您輸入的密码长度不符合!请您重新输入账号:");
+						}else if (getverifiedm == 1) {
+							System.err.println("6*您輸入的密码长度不符合!请您重新输入密码:");
 							mima = input.nextLine().trim();
 							getverifiedm = verifyNumber.verifyNumber(mima);
 						}
