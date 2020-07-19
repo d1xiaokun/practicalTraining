@@ -32,8 +32,7 @@ public class Main {
 			
 			if (change.equals("1")) {
 				System.out.println("\n你好管理员,欢迎回来!");
-				Adminsystem admin = new Adminsystem();//调用管理员登录实体类
-				admin.adminSystem();
+				Adminsystem.adminSystem();
 
 			} else if (change.equals("2")) {
 				System.out.print("尊敬的用户您好!");

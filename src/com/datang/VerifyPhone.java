@@ -16,9 +16,9 @@ public class VerifyPhone {
 			boolean isMatch = m.matches();
 			if(! isMatch){
 				return 2;
-			}else {
-				return 3;
 			}
+				return 3;
+			
 		}
 	}
 }

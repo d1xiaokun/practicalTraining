@@ -2,9 +2,37 @@ package com.datang;
 
 import java.util.Scanner;
 
+import com.datang.model.Admin;
+
 public class Adminlogin {
 public static void adminlogin() throws Exception{
 	// TODO Auto-generated method stub
+		Scanner input= new Scanner(System.in);
+		Admin admin = new Admin();
+		//登录验证部分
+	System.out.println("请您输入登录账号:");
+	String zhanghao = input.nextLine().trim();
+	VerifyNumber verifyNumber = new VerifyNumber();
+		int getverified =verifyNumber.verifyNumber(zhanghao);
+		if (getverified == 0) {
+			System.err.println("3您输入的账号为空,请重新输入!");
+			//System.out.println(admin.getAcc_number());
+			adminlogin();
+
+		} else if (getverified == 1) {
+			System.err.println("6您输入的账号不满足6-16位,请重新输入!");
+			//System.out.println(admin.getAcc_number());
+			adminlogin();
+		}
+		System.out.println("请您输入密码:");
+		String pwd = input.nextLine();
+		UnifiedAccountPassword uap = new UnifiedAccountPassword();
+		int zp = uap.verify(zhanghao, pwd);
+		if(zp == 0){
+			adminlogin();
+		}
+		//登录成功
+		
 			for (int i = 0; i < 30; i++) {
 				System.out.print("=");
 			}
@@ -14,10 +42,9 @@ public static void adminlogin() throws Exception{
 			System.out.println("2.宠物交易模块管理");
 			System.out.println("3.退出登录,返回管理员登录界面");
 			System.out.println("4.退出程序");
-			Scanner input= new Scanner(System.in);
+			
 			String change = input.nextLine(); 
 			
-			//登录未输入账号密码
 			if (change.equals("1")) {
 				//管理管理用户界面
 				
