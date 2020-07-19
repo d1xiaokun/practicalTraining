@@ -3,7 +3,6 @@ package com.datang;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import com.mysql.jdbc.PreparedStatement;
 
@@ -21,11 +20,13 @@ public class UnifiedAccountPassword {
 		// ÷¥––sql”Ôæ‰
 		ResultSet eq = ps.executeQuery();
 		while (eq.next()) {// œ»≈–∂œ «∑Ò’À∫≈ «∑Ò±ª◊¢≤·
-			if (!eq.getString(2).equals(zhanghao)
-					|| !eq.getString(3).equals(mima))
+			if (eq.getString(2).equals(zhanghao) && eq.getString(3).equals(mima)){
 				return 0;
+		}else {
+			return 1;
 		}
-		return 1;
+		
 	}
-
+return 1; 
+}
 }
