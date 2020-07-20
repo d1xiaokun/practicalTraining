@@ -9,9 +9,7 @@ public class ChangeAdPwd {
 		 * 找回方式为2种
 		 * 1.验证注册手机号
 		 * 2.验证密保信息,提示密保问题
-		 * 
 		 */
-		System.out.println("请输入您要找回密码的账号:");
 //		输入账号    不验证账号是否正确,提高安全性,防止知道账号猜密码,但要验证输入的账号是否为空
 		
 		System.out.println("请选择您要找回密码的方式:");
@@ -20,19 +18,19 @@ public class ChangeAdPwd {
 		System.out.println("3.返回上一级");
 		System.out.println("4.退出程序");
 		Scanner input = new Scanner(System.in);
-		String choose =input.nextLine();
-		if (choose.equals("1") ) {//用户选择1匹配数据库的账号信息&&密保都正确才可以
+		String choose1 =input.nextLine();
+		if (choose1.equals("1") ) {//用户选择1匹配数据库的账号信息&&密保都正确才可以
 		ChangeByPhone changeByPhone = new ChangeByPhone();
 		//changeByPhone.
-		}else if (choose.equals("2")) {//用户选择2匹配数据库的账号信息&&手机号都正确才可以
+		}else if (choose1.equals("2")) {//用户选择2匹配数据库的账号信息&&手机号都正确才可以
 			
-		}else if (choose.equals("3")){
+		}else if (choose1.equals("3")){
 			System.out.println("请稍等...");
 			Thread thread = new Thread();
 			thread.sleep(200);//暂停0.2S
 			System.out.println("OK!正在返回上一级");
 			Adminsystem.adminSystem();;
-		}else if (choose.equals("4")){
+		}else if (choose1.equals("4")){
 			Thread thread = new Thread();
 			thread.sleep(800);// 暂停0.8S
 			System.out.println("系统退出成功!感谢您的使用!期待下次与您相伴!^_^");
