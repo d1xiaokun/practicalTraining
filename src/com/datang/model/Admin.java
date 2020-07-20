@@ -2,7 +2,6 @@ package com.datang.model;
 
 public class Admin {
 	private String acc_number;
-	
 	private String acc_pwd;
 	private String phone;
 	private String mibao_Q;
@@ -37,5 +36,7 @@ public class Admin {
 	public void setMibao(String mibao) {
 		this.mibao = mibao;
 	}
+	
+	
 	
 }

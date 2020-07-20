@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 
 import com.mysql.jdbc.PreparedStatement;
 
-public class UnifiedAccountPassword {
-	public int verify(String zhanghao, String mima) throws Exception {
+public class UnifiedAccountPhone {
+	public int unifiedAccountPhone(String zhanghao,String phone)throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		// 3.获取数据库连接
 		Connection con = DriverManager.getConnection(
@@ -21,7 +21,7 @@ public class UnifiedAccountPassword {
 		ResultSet eq = ps.executeQuery();
 		while (eq.next()) {// 先判断是否账号是否被注册
 			if (eq.getString(2).equals(zhanghao)
-					&& eq.getString(3).equals(mima)) {
+					&& eq.getString(4).equals(phone)) {
 				return 0;
 			} else {
 				return 1;
@@ -29,5 +29,7 @@ public class UnifiedAccountPassword {
 
 		}
 		return 2;
-	}
+	
+	
+}
 }

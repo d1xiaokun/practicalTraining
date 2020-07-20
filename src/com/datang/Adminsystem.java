@@ -28,27 +28,9 @@ public class Adminsystem {
 			AdminRegister adminRegister = new  AdminRegister();
 			adminRegister.adminRegister();
 		}else if (choose.equals("3")) {
-			//AdminRetrievePwd
-			/*先连接数据库
-			 * 找回方式为2种
-			 * 1.验证注册手机号
-			 * 2.验证密保信息,提示密保问题
-			 * 
-			 */
-			System.out.println("请输入您要找回密码的账号:");
-//			输入账号    不验证账号是否正确,提高安全性,防止知道账号猜密码,但要验证输入的账号是否为空
+			ChangeAdPwd changeAdPwd = new ChangeAdPwd();
+			changeAdPwd.changAdPwd();
 			
-			System.out.println("请选择您要找回密码的方式:");
-			System.out.println("1.验证注册手机号");
-			System.out.println("2.验证密保信息");
-			System.out.println("3.返回上一级");
-			System.out.println("4.退出程序");
-			//用户选择1
-//			匹配数据库的账号信息&&密保都正确才可以
-			//用户选择2
-//			匹配数据库的账号信息&&手机号都正确才可以
-			//验证成功后提示修改密码Updata
-			//修改成功提示修改成功并询问是否返回登录还是退出程序
 		}else if (choose.equals("4")){
 			System.out.println("请稍等...");
 			Thread thread = new Thread();
