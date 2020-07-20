@@ -59,5 +59,7 @@ public class ChangeByPhone {
 		}
 		System.out.println("身份验证成功!");
 		System.out.println("请输入您要修改的密码:");
+		RechangePwd rp = new RechangePwd();
+		rp.rechangePwd(number);
 	}
 }

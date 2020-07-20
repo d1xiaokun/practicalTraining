@@ -1,4 +1,4 @@
-package com.datang;
+package com.datang.model;
 
 import java.util.Scanner;
 

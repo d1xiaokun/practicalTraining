@@ -19,11 +19,12 @@ public class ChangeAdPwd {
 		System.out.println("4.退出程序");
 		Scanner input = new Scanner(System.in);
 		String choose1 =input.nextLine();
-		if (choose1.equals("1") ) {//用户选择1匹配数据库的账号信息&&密保都正确才可以
+		if (choose1.equals("1") ) {//用户选择1匹配数据库的账号信息&&手机号都正确才可以
 		ChangeByPhone changeByPhone = new ChangeByPhone();
-		//changeByPhone.
-		}else if (choose1.equals("2")) {//用户选择2匹配数据库的账号信息&&手机号都正确才可以
-			
+		changeByPhone.changeAdPwd();
+		}else if (choose1.equals("2")) {//用户选择2匹配数据库的账号信息&&密保都正确才可以
+		ChangeByMb changeByMb =new ChangeByMb();
+		changeByMb.changeAdPwd();
 		}else if (choose1.equals("3")){
 			System.out.println("请稍等...");
 			Thread thread = new Thread();

@@ -1,4 +1,4 @@
-package com.datang;
+package com.datang.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,6 +29,7 @@ public class exp_update {
 					"jdbc:mysql://localhost:3306/superone", "root", "root");
 			// 4.定义sql语句
 			String sql1 = "select * from admin where acc_number=?";
+			
 			// 5.获取sql语句的对象
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql1);
 			ps.setString(1, acc_number);

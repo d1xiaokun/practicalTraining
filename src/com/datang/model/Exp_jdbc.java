@@ -1,4 +1,4 @@
-package com.datang;
+package com.datang.model;
 
 import java.beans.Statement;
 import java.sql.Connection;
