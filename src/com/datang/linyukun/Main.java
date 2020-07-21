@@ -1,5 +1,7 @@
 package com.datang.linyukun;
 	import java.util.Scanner;
+	import com.datang.wjy.main;
+import com.datang.wjy.main;
 public class Main {
 	
 		private static Scanner input;
@@ -38,9 +40,11 @@ public class Main {
 				System.out.print("尊敬的用户您好!");
 				// 用户选项
 				//王佳媛、万玉涵内容
-				UserSystem userSystem = new UserSystem();
-				userSystem.usersystem();
-				Login();
+				//UserSystem userSystem = new UserSystem();
+				//userSystem.usersystem();
+				//Login();
+				main  a = new main();
+				a.main();
 			} else if (change.equals("3")) {
 				Thread thread = new Thread();
 				
