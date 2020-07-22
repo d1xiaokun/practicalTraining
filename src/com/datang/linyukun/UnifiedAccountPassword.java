@@ -26,7 +26,6 @@ public class UnifiedAccountPassword {
 			} else {
 				return 1;
 			}
-
 		}
 		return 2;
 	}

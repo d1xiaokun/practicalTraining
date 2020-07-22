@@ -36,19 +36,16 @@ public class RechangePwd {
 				admin.setAcc_pwd(input.nextLine().trim());
 				returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd());
 			}
-}
-			ps.setString(1, admin.getAcc_pwd());
-			ps.setString(2, zhanghao);
-
-			int res = ps.executeUpdate();
-			if (res != 0) {
-				System.out.println("修改成功");
-				System.out.println("新密码为:" + admin.getAcc_pwd() + "请牢记!");
-			} else {
-				System.out.println("修改失败");
-				ChangeByPhone.changeAdPwd();
-			}
-
-		
+		}
+		ps.setString(1, admin.getAcc_pwd());
+		ps.setString(2, zhanghao);
+		int res = ps.executeUpdate();
+		if (res != 0) {
+			System.out.println("修改成功");
+			System.out.println("新密码为:" + admin.getAcc_pwd() + "请牢记!");
+		} else {
+			System.out.println("修改失败");
+			ChangeByPhone.changeAdPwd();
+		}
 	}
 }

@@ -7,7 +7,8 @@ import java.sql.ResultSet;
 import com.mysql.jdbc.PreparedStatement;
 
 public class UnifiedAccountPhone {
-	public int unifiedAccountPhone(String zhanghao,String phone)throws Exception {
+	public int unifiedAccountPhone(String zhanghao, String phone)
+			throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		// 3.获取数据库连接
 		Connection con = DriverManager.getConnection(
@@ -26,10 +27,7 @@ public class UnifiedAccountPhone {
 			} else {
 				return 1;
 			}
-
 		}
 		return 2;
-	
-	
-}
+	}
 }

@@ -9,7 +9,9 @@ import com.mysql.jdbc.PreparedStatement;
 
 public class DdRegister {
 	public void ddRegister() throws Exception{
-		
+		/*
+		 * 管理员添加订单功能已移除
+		 */
 			// 2.注册驱动
 			Class.forName("com.mysql.jdbc.Driver");
 			// 3.获取数据库连接
@@ -18,7 +20,6 @@ public class DdRegister {
 			// 4.定义sql语句	
 			String sql = "INSERT INTO jyxx(ddnumber,jyjf,jyyf)VALUE(?,?,?);";
 			//5.获取sql语句的对象
-			
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
 			//PreparedStatement ps1 = (PreparedStatement) con.prepareStatement(select);
 			User user = new User();
@@ -29,16 +30,10 @@ public class DdRegister {
 			JudgeName jn = new JudgeName();
 			String jfn = jn.judgeJName();
 			String yfn = jn.judgeYName();
-			
-			
-			
-			
-						
 			//6.执行sql语句
 			ps.setString(1, ddn);
 			ps.setString(2, jfn);
 			ps.setString(3, yfn);
-			
 			int res =ps.executeUpdate();
 			 //System.out.println(res);
 			//7.查看返回结果
@@ -73,13 +68,11 @@ public class DdRegister {
 							//Login();//若输入不在选项继续循环当前模块
 						}
 						}
-						
 					}else {
 						//执行sql语句失败
 						System.err.println("订单创建失败!");
 						System.out.println("即将返回重新创建");
 						ddRegister();
-				 }
-				
+				 }				
 	}
 }

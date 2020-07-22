@@ -3,6 +3,9 @@ package com.datang.linyukun;
 import java.util.Scanner;
 
 public class JudgeName {
+	/*
+	 * 创建订单检验订单号部分,已被移除
+	 */
 	public String judgeJName(){
 		System.out.println("请输入甲方名称:");
 		Scanner input = new Scanner(System.in);

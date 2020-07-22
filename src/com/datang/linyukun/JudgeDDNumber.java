@@ -9,6 +9,9 @@ import com.datang.model.PetTrade;
 import com.mysql.jdbc.PreparedStatement;
 
 public class JudgeDDNumber {
+	/*
+	 * 创建订单检验订单号部分,已被移除
+	 */
 	public String judgeDDNumber() throws Exception{
 	Class.forName("com.mysql.jdbc.Driver");
 	// 3.获取数据库连接
@@ -29,7 +32,7 @@ public class JudgeDDNumber {
 	ps1.setString(1, pt.getDdnumber());
 	ResultSet eq = ps1.executeQuery();
 	if(eq.next()){// 先判断是否账号是否被注册
-			System.out.println("2抱歉,您输入的账号已被注册!请重新输入!");
+			System.out.println("2抱歉,您输入的订单已被注册!请重新输入!");
 			judgeDDNumber();
 	}
 	return pt.getDdnumber();

@@ -25,7 +25,6 @@ public class UnifiedAccount {
 				//System.out.println(eq.getString(5));
 				return eq.getString(5);
 			}
-
 		}
 		return "noon";
 	}
