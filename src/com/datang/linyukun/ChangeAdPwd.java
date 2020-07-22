@@ -2,7 +2,12 @@ package com.datang.linyukun;
 
 import java.util.Scanner;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 public class ChangeAdPwd {
+	public static void main(String[] args) throws Exception {
+		changAdPwd();
+	}
 	public static void changAdPwd() throws Exception{
 		//AdminRetrievePwd
 		/*先连接数据库

@@ -19,7 +19,7 @@ public class inquire {
 		 try {
 				
 			 Class.forName("com.mysql.jdbc.Driver");
-			 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cwglxt","wjy","root");
+			 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/superone","root","root");
 			 String sqlStr1="select jyjf,jyyf,ddnumber from jyxx where ddnumber="+deal.getDdnumber()+"";//要执行的SQL
              Statement st=con.createStatement();
              ResultSet rs=st.executeQuery(sqlStr1); //执行查询

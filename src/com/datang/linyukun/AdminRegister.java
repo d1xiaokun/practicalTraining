@@ -9,10 +9,12 @@ import com.datang.model.Admin;
 import com.mysql.jdbc.PreparedStatement;
 
 public class AdminRegister {//管理员注册
-	private Scanner input;
-private Scanner admininput;
-
-	public void adminRegister() {
+	private static Scanner input;
+private static Scanner admininput;
+public static void main(String[] args){
+	adminRegister();
+}
+	public static void adminRegister() {
 		
 		try {
 			// 2.注册驱动
@@ -144,20 +146,24 @@ private Scanner admininput;
 						System.out.println("3.退出系统");
 						admininput = new Scanner(System.in);
 						String change =admininput.nextLine();
-						if (change.equals("1")) {
+						while(!change.equals("1" )||!change.equals("1") ||!change.equals("3")){
+							if (change.equals("1")) {
 							Adminsystem.adminSystem();
-						} else if (change.equals("2")) {
+							} else if (change.equals("2")) {
 							Main.Login();
-						} else if (change.equals("3")) {
+							} else if (change.equals("3")) {
 							Thread thread = new Thread();
 							thread.sleep(800);//暂停0.8S
 							System.out.println("系统退出成功!感谢您的使用!期待下次与您相伴!^_^");
 							System.exit(-1);
-						} else {
+							} else {
 							System.err.println("请输入正确的选项!(1-3)");
-							new Scanner(System.in).nextLine();//停顿一下
+							change =admininput.nextLine();
+							//new Scanner(System.in).nextLine();//停顿一下
 							//Login();//若输入不在选项继续循环当前模块
 						}
+						}
+						
 					}else {
 						//执行sql语句失败
 						System.err.println("管理员注册失败!");

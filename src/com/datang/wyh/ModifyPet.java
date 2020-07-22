@@ -46,7 +46,7 @@ public class ModifyPet {
 			try {
 				
 				con = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/cwglxt", "wjy", "root");
+						"jdbc:mysql://localhost:3306/superone", "root", "root");
 				
 				ps = con.prepareStatement(sql1);
 				ps.setString(1, pet.getPetnumber());

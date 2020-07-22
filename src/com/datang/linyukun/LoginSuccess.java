@@ -9,6 +9,7 @@ public class LoginSuccess {
 		}
 		System.out.println();
 		System.out.println("请选择您的选项:");
+		System.out.println("0.注册新管理员");
 		System.out.println("1.用户管理");
 		System.out.println("2.宠物交易订单管理");
 		System.out.println("3.退出登录,返回管理员登录界面");
@@ -39,6 +40,9 @@ public class LoginSuccess {
 			thread.sleep(800);// 暂停0.8S
 			System.out.println("系统退出成功!感谢您的使用!期待下次与您相伴!^_^");
 			System.exit(-1);
+		}else if (change.equals("0") ){
+			AdminRegister adminRegister = new  AdminRegister();
+			adminRegister.adminRegister();
 		} else {
 			System.err.println("请输入正确的选项!(1-4)输入回车继续");
 			new Scanner(System.in).nextLine();// 停顿一下

@@ -13,7 +13,7 @@ public class examine {
 		System.out.println("欢迎进入查看宠物交易信息界面");
 		 try {
 		 Class.forName("com.mysql.jdbc.Driver");
-		 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cwglxt","wjy","root");
+		 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/superone","root","root");
          Statement stmt=con.createStatement();
 		 ResultSet rs=stmt.executeQuery("select * from jyxx");
          while(rs.next()){

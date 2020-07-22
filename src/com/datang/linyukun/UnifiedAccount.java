@@ -22,7 +22,7 @@ public class UnifiedAccount {
 		ResultSet eq = ps.executeQuery();
 		while (eq.next()) {// œ»≈–∂œ «∑Ò’À∫≈ «∑Ò±ª◊¢≤·
 			if (eq.getString(2).equals(zhanghao)) {
-				System.out.println(eq.getString(5));
+				//System.out.println(eq.getString(5));
 				return eq.getString(5);
 			}
 

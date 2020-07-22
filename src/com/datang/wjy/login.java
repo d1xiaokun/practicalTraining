@@ -51,7 +51,7 @@ public class login {
 			try {
 				 PreparedStatement ps = null;
 				 Class.forName("com.mysql.jdbc.Driver");
-				 Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cwglxt","wjy","root");
+				 Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/superone","root","root");
 		         ps=con.prepareStatement("select * from user where yonghu = ?  and password = ?");
 		         ps.setString(1, user.getYonghu());
 		         ps.setString(2, user.getPassword());

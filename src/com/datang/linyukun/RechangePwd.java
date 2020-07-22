@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
+import com.datang.model.Admin;
 import com.mysql.jdbc.PreparedStatement;
 
 public class RechangePwd {
@@ -18,20 +19,35 @@ public class RechangePwd {
 		String sql1 = "update admin set acc_pwd=? where acc_number=?";
 		// 5.获取sql语句的对象
 		PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql1);
+		Admin admin = new Admin();
 		System.out.println("请输入新密码:");
 		Scanner input = new Scanner(System.in);
-		String a = input.nextLine().trim();
-		ps.setString(1, a);
-		ps.setString(2, zhanghao);
+		// 验证密码合法性
+		admin.setAcc_pwd(input.nextLine().trim());
+		VerifyPwd verifyPwd = new VerifyPwd();
+		int returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd());
+		while (returnPwd == 0 || returnPwd == 1) {
+			if (returnPwd == 0) {
+				System.err.println("您输入的密码为空,请重新输入!");
+				admin.setAcc_pwd(input.nextLine().trim());
+				returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd());
+			} else if (returnPwd == 1) {
+				System.err.println("您输入的密码不满足6-16位,请重新输入!");
+				admin.setAcc_pwd(input.nextLine().trim());
+				returnPwd = verifyPwd.verifyPwd(admin.getAcc_pwd());
+			}
+}
+			ps.setString(1, admin.getAcc_pwd());
+			ps.setString(2, zhanghao);
 
-		int res = ps.executeUpdate();
-		if (res != 0) {
-			System.out.println("修改成功");
-			System.out.println("您的新密码为:"+a+"请牢记!");
-		} else {
-			System.out.println("修改失败");
-			ChangeByPhone.changeAdPwd();
-		}
+			int res = ps.executeUpdate();
+			if (res != 0) {
+				System.out.println("修改成功");
+				System.out.println("新密码为:" + admin.getAcc_pwd() + "请牢记!");
+			} else {
+				System.out.println("修改失败");
+				ChangeByPhone.changeAdPwd();
+			}
 
 		
 	}

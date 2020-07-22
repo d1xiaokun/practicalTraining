@@ -16,7 +16,7 @@ public class findpassword {
 		user.setPhone(userInput.nextLine().trim());   
 		try {
 			 Class.forName("com.mysql.jdbc.Driver");
-			 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cwglxt","wjy","root");
+			 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/superone","root","root");
 
 			 String sql = "update user set password=5201314 where "+user.getPhone()+""; 
 			 PreparedStatement ps=con.prepareStatement(sql);

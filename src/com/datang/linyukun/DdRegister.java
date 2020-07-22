@@ -56,7 +56,8 @@ public class DdRegister {
 						System.out.println("3.退出系统");
 						Scanner admininput = new Scanner(System.in);
 						String change =admininput.nextLine();
-						if (change.equals("1")) {
+						while(!change.equals("1" )||!change.equals("1") ||!change.equals("3")){
+							if (change.equals("1")) {
 							ddRegister();
 						} else if (change.equals("2")) {
 							ManagePetTrade.managePetTrade();
@@ -67,9 +68,12 @@ public class DdRegister {
 							System.exit(-1);
 						} else {
 							System.err.println("请输入正确的选项!(1-3)");
-							new Scanner(System.in).nextLine();//停顿一下
+							//new Scanner(System.in).nextLine();//停顿一下
+							change =admininput.nextLine();
 							//Login();//若输入不在选项继续循环当前模块
 						}
+						}
+						
 					}else {
 						//执行sql语句失败
 						System.err.println("订单创建失败!");

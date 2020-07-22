@@ -23,7 +23,7 @@ public class DeletePet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			 con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/cwglxt", "wjy", "root");
+					"jdbc:mysql://localhost:3306/superone", "root", "root");
 			String sql = "DELETE FROM pet where petnumber = ? ";
 
 			 ps = con.prepareStatement(sql);

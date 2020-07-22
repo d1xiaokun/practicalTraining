@@ -20,8 +20,7 @@ public class UnifiedMM {
 		// ÷¥––sql”Ôæ‰
 		ResultSet eq = ps.executeQuery();
 		while (eq.next()) {// œ»≈–∂œ «∑Ò’À∫≈ «∑Ò±ª◊¢≤·
-			if (eq.getString(2).equals(zhanghao)
-					&& eq.getString(5).equals(mibaoQ) && eq.getString(6).equals(mibaoQ)) {
+			if ( eq.getString(5).equals(mibaoQ) && eq.getString(6).equals(mibao)) {
 				return 0;
 			} else {
 				return 1;

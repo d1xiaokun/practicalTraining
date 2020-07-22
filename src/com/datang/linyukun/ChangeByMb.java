@@ -25,28 +25,30 @@ public class ChangeByMb {
 				String choose = input.nextLine().trim();
 				//System.out.println(choose);
 				if (choose.equals("y") || choose.equals("Y")) {
-					System.out.println("3n请输入您要更改密码的账号:");
-					admin.setAcc_number(input.nextLine().trim());
-					a =ua.unifiedAccount(admin.getAcc_number());
-		
-		}else if (choose.equals("n") || choose.equals("N")) {
-			ChangeAdPwd.changAdPwd();
+//					System.out.println("3n请输入您要更改密码的账号:");
+//					admin.setAcc_number(input.nextLine().trim());
+//					a =ua.unifiedAccount(admin.getAcc_number());
+					changeAdPwd();
+				}else if (choose.equals("n") || choose.equals("N")) {
+					ChangeAdPwd.changAdPwd();
 
-		} else {
+				} else {
 			System.err.println("pp请输入正确的选项!");
-			System.err.println("2m是否继续请输入y,返回请输入任意 :");
+			System.err.println("2m是否继续请输入y,返回上一级请输入任意 :");
 			choose = input.nextLine().trim();
 			//System.out.println(choose);
 			if (choose.equals("y") || choose.equals("Y")) {
 				changeAdPwd();
 			}else{
-				ChangeAdPwd.changAdPwd();
+				Adminsystem.adminSystem();
 			}
 		}
 		System.out.println("您的密保问题为:"+a);
 		System.out.println("请输入您的密保答案:");
-		String answer=input.nextLine().trim();
+		String answer = input.nextLine().trim();
 		System.out.println("正在进行验证...");
+		
+		
 		UnifiedMM umm = new UnifiedMM();
 		int b = umm.unifiedMM(admin.getAcc_number(), a, answer);
 		while(b != 0){
@@ -58,18 +60,28 @@ public class ChangeByMb {
 			
 			 b = umm.unifiedMM(admin.getAcc_number(), a, answer);
 		}
+	}	
 		
 		
-		
-	}
+	
 		System.out.println("您的密保问题为:"+a);
 		System.out.println("请输入您的密保答案:");
-		String answer=input.nextLine().trim();
+		String answer = input.nextLine().trim();
 		System.out.println("正在进行验证...");
+		
 		UnifiedMM umm = new UnifiedMM();
 		int b = umm.unifiedMM(admin.getAcc_number(), a, answer);
 		while(b != 0){
 			System.err.println("您输入的密保答案不正确!");
+			
+			System.err.println("是否继续请输入y,返回上一级请输入任意 :");
+			String a1 = input.nextLine().trim();
+			if (a1.equals("y") || a1.equals("Y")) {
+				changeAdPwd();
+			}else{
+				ChangeAdPwd.changAdPwd();
+			} 
+			System.out.println("");
 			System.out.println("您的密保问题为:"+a);
 			System.out.println("请输入您的密保答案:");
 			answer=input.nextLine().trim();
@@ -77,6 +89,10 @@ public class ChangeByMb {
 			
 			 b = umm.unifiedMM(admin.getAcc_number(), a, answer);
 		}
+		
+		
+		
+		
 		System.out.println("身份验证成功!");
 		System.out.println("请输入您要修改的密码:");
 		RechangePwd rp = new RechangePwd();
@@ -85,7 +101,7 @@ public class ChangeByMb {
 		System.out.println("1.返回管理员登录");
 		System.out.println("2.退出程序");
 		String choose1 =input.nextLine().trim();
-		while(!choose1.equals("1")||!choose1.equals("2")){
+		while(!choose1.equals("1") &&!choose1.equals("2")){
 			System.err.println("您的选项有误,请重新选择!");
 			System.out.println("请输入您的选项:");
 			System.out.println("1.返回管理员登录");

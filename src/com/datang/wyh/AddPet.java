@@ -52,7 +52,7 @@ public class AddPet {
 			Class.forName("com.mysql.jdbc.Driver");
 			// 获取数据库链接
 			Connection con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/cwlixt", "wjy", "root");
+					"jdbc:mysql://localhost:3306/superone", "root", "root");
 			// 定义sql
 			String sql = "INSERT INTO pet(petnumber,petname,petage,petsex,petvariety,petcase)VALUE(?,?,?,?,?,?)";
 			// 获取执行sql的对象

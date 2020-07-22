@@ -61,5 +61,25 @@ public class ChangeByPhone {
 		System.out.println("请输入您要修改的密码:");
 		RechangePwd rp = new RechangePwd();
 		rp.rechangePwd(number);
+		System.out.println("请输入您的选项:");
+		System.out.println("1.返回管理员登录");
+		System.out.println("2.退出程序");
+		String choose1 =input.nextLine().trim();
+		while(!choose1.equals("1") &&!choose1.equals("2")){
+			System.err.println("您的选项有误,请重新选择!");
+			System.out.println("请输入您的选项:");
+			System.out.println("1.返回管理员登录");
+			System.out.println("2.退出程序");
+			choose1 =input.nextLine().trim();
+		}
+		if (choose1.equals("1")) {
+			Adminlogin.adminlogin();
+		}else {
+			Thread thread = new Thread();
+
+			thread.sleep(800);// 暂停0.8S
+			System.out.println("系统退出成功!感谢您的使用!期待下次与您相伴!^_^");
+			System.exit(-1);
+		}
 	}
 }

@@ -82,7 +82,7 @@ public class register {
 	try {
 			
 		 Class.forName("com.mysql.jdbc.Driver");
-		 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cwglxt","wjy","root");
+		 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/superone","root","root");
          String sql="INSERT INTO user(yonghu,phone,password)VALUE(?,?,?)";
          PreparedStatement ps=con.prepareStatement(sql);
          ps.setString(1, user.getYonghu());

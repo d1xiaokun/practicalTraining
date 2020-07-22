@@ -37,7 +37,7 @@ public class Adminlogin {
 			
 				
 			}else if (getverifiedm == 1) {
-				System.err.println("66您輸入的密码长度不符合!请您重新输入账号:");
+				System.err.println("66您輸入的密码长度不符合!请您重新输入密码:");
 				mima = input.nextLine().trim();
 				getverifiedm = verifyNumber.verifyNumber(mima);
 				

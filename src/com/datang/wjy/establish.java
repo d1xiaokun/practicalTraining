@@ -41,7 +41,7 @@ public class establish {
 	    System.out.println("可以传数据库");
 	    try {
 				Class.forName("com.mysql.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cwglxt","wjy","root");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/superone","root","root");
 	        String sql="INSERT INTO jyxx(jyjf,jyyf,ddnumber)VALUE(?,?,?)";
 	        PreparedStatement ps=con.prepareStatement(sql);
 	        ps.setString(1, deal.getJyjf());

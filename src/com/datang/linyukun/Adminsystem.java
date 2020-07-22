@@ -16,22 +16,20 @@ public class Adminsystem {
 		System.out.println();
 		System.out.println("请选择您的选项:");
 		System.out.println("1.登录");
-		System.out.println("2.注册管理员");
-		System.out.println("3.修改或找回管理员密码");
-		System.out.println("4.返回上一级");
+		//System.out.println("2.注册管理员");
+		System.out.println("2.修改或找回管理员密码");
+		System.out.println("3.返回上一级");
 		input = new Scanner(System.in);
 		String choose=input.nextLine();
 		if (choose.equals("1")) {
 			Adminlogin adminlogin = new Adminlogin();
 			Adminlogin.adminlogin();
-		}else if (choose.equals("2")) {
-			AdminRegister adminRegister = new  AdminRegister();
-			adminRegister.adminRegister();
-		}else if (choose.equals("3")) {
+			}
+		else if (choose.equals("2")) {
 			ChangeAdPwd changeAdPwd = new ChangeAdPwd();
 			changeAdPwd.changAdPwd();
 			
-		}else if (choose.equals("4")){
+		}else if (choose.equals("3")){
 			System.out.println("请稍等...");
 			Thread thread = new Thread();
 			thread.sleep(200);//暂停0.2S
