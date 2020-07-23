@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class AddPet {
 
-	public void AddPet() throws Exception {
+	public void AddPet() {
 		// TODO Auto-gsenerated method stub
 
 		Scanner userInput = new Scanner(System.in);

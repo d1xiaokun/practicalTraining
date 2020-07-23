@@ -57,7 +57,7 @@ public class ManageUsers {
 				new Scanner(System.in).nextLine();// 停顿一下
 				manageUsers();
 			}
-			System.err.println("数据库中无此用户,请返回重试");
+			System.err.println("数据库中无此用户,请输入任意返回管理用户界面重试!!");
 			new Scanner(System.in).nextLine();// 停顿一下
 			manageUsers();
 		} else if (choose.equals("3")) {
@@ -74,7 +74,7 @@ public class ManageUsers {
 			System.out.println("系统退出成功!感谢您的使用!期待下次与您相伴!^_^");
 			System.exit(-1);
 		} else {
-			System.err.println("请输入正确的选项!(1-6)输入回车继续");
+			System.err.println("请输入正确的选项!(1-6),输入任意返回管理用户界面重试!");
 			new Scanner(System.in).nextLine();// 停顿一下
 			manageUsers();
 		}

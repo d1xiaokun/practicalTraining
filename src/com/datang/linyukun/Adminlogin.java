@@ -46,8 +46,7 @@ public class Adminlogin {
 		UnifiedAccountPassword uap = new UnifiedAccountPassword();
 		int re = uap.verify(zhanghao, mima);
 		while (re != 0) {
-			System.err.println("您输入的账号或密码有误,请重新输入!");
-			System.out.println("请您输入登录账号(6-16位):");
+			System.err.println("您输入的账号或密码有误,请重新输入登录账号(6-16位):");
 			zhanghao = input.nextLine().trim();
 			getverified = verifyNumber.verifyNumber(zhanghao);
 			while (getverified == 0 || getverified == 1) {

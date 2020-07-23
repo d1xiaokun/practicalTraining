@@ -1,11 +1,10 @@
 package com.datang.wyh;
+
+
 import java.util.Scanner;
 
-import com.datang.wjy.enter;
-import com.datang.wjy.pet;
-
 public class PetSystem {
-	public static void PetSystem() throws Exception {
+	public static void PetSystem() {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("========宠物信息管理========");
 		System.out.println("   添加宠物信息请输入1");
@@ -27,10 +26,6 @@ public class PetSystem {
 		} else if (adminChange.equals("4")) {
 			DeletePet deletePet= new DeletePet();
 			deletePet.DeletePet();
-		}else if(adminChange.equals("quit")){
-        	System.out.println("返回上一级");
-        	PetLogin PetLogin=new PetLogin();
-        	PetLogin.PetLogin();
 		}else if  (adminChange.equals("5")) {
 			System.err.println("请正确输入！");
 			PetSystem();

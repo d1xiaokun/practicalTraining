@@ -38,7 +38,7 @@ public class LoginSuccess {
 			AdminRegister adminRegister = new AdminRegister();
 			adminRegister.adminRegister();
 		} else {
-			System.err.println("请输入正确的选项!(1-4)输入回车继续");
+			System.err.println("请输入正确的选项!(0-4)输入任意继续");
 			new Scanner(System.in).nextLine();// 停顿一下
 			loginSuccess();// 若输入不在选项继续循环当前模块
 		}

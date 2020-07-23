@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.datang.linyukun.Main;
 
 public class enter {
-	public void enter() throws Exception {
+	public static void enter() throws Exception {
 	Scanner userInput =new Scanner(System.in);
 	User user=new User();  
 	System.out.println("µÇÂ¼ÇëÊäÈë1£º");		

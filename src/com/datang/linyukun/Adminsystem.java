@@ -32,7 +32,7 @@ public class Adminsystem {
 			System.out.println("OK!正在返回上一级");
 			Main.Login();
 		} else {
-			System.err.println("请输入正确的选项(1-4)");
+			System.err.println("请输入正确的选项(1-3)");
 			adminSystem();// 若输入不在选项继续循环当前模块
 		}
 	}

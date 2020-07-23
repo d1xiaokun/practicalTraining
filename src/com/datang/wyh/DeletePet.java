@@ -1,5 +1,6 @@
 package com.datang.wyh;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,21 +41,10 @@ public class DeletePet {
 				 petSystem.PetSystem();
 			 }
 			 else {
-				 System.out.println("删除失败，即将返回上一级！");
+				 System.err.println("删除失败，该宠物号不存在，即将返回上一级！");
 				 PetSystem petSystem = new PetSystem();
 				 petSystem.PetSystem();
 			 }
-			 
-/*
-			if (res != 0) {
-				System.out.println("删除成功，即将返回上一级！");
-				PetSystem petSystem = new PetSystem();
-				c
-			} else {
-				System.out.println("删除失败，即将返回上一级！");
-				PetSystem petSystem = new PetSystem();
-				petSystem.PetSystem();
-			}*/
 
 		} catch (Exception e) {
 			e.printStackTrace();

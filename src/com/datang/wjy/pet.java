@@ -3,9 +3,9 @@ package com.datang.wjy;
 import java.util.Scanner;
 
 public class pet {
-     public void pet() throws Exception{
+     public static void pet() throws Exception{
     	    Scanner userInput=new Scanner(System.in);
-	  		System.out.println("进入宠物交易界面");
+	  		System.out.println("======进入宠物交易界面======");
 	  		System.out.println("创建订单请输入1：");		
 	        System.out.println("查询订单请输入2：");
 	        System.out.println("删除订单请输入3：");

@@ -7,7 +7,8 @@ import java.sql.ResultSet;
 import com.mysql.jdbc.PreparedStatement;
 
 public class UnifiedMM {
-	public int unifiedMM(String zhanghao,String mibaoQ,String mibao) throws Exception{
+	public int unifiedMM(String zhanghao, String mibaoQ, String mibao)
+			throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
 		// 3.获取数据库连接
 		Connection con = DriverManager.getConnection(
@@ -20,7 +21,7 @@ public class UnifiedMM {
 		// 执行sql语句
 		ResultSet eq = ps.executeQuery();
 		while (eq.next()) {// 先判断是否账号是否被注册
-			if ( eq.getString(5).equals(mibaoQ) && eq.getString(6).equals(mibao)) {
+			if (eq.getString(5).equals(mibaoQ) && eq.getString(6).equals(mibao)) {
 				return 0;
 			} else {
 				return 1;
@@ -28,9 +29,7 @@ public class UnifiedMM {
 
 		}
 		return 2;
-	
-	
 
-}
-	
+	}
+
 }

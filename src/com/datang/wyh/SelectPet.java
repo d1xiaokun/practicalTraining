@@ -1,4 +1,5 @@
 package com.datang.wyh;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
-
-import com.datang.wjy.enter;
 
 public class SelectPet {
 
@@ -25,23 +24,19 @@ public class SelectPet {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			 con = DriverManager.getConnection(
+			con = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/superone", "root", "root");
 			String sql = "SELECT * FROM pet where petnumber =?";
 
-			 ps = con.prepareStatement(sql.toString());
-			//ps.setString(1, pet.getPetnumber());
-
+			ps = con.prepareStatement(sql.toString());
+		
 			System.out.println(sql);
-			//Statement st = con.createStatement();
-			ps.setString(1, pet.getPetnumber());
-			 res = ps.executeQuery();
-//			System.out.println(res);
-//			System.out.println(res.next());
 			
-			while (res.next()) {
+			ps.setString(1, pet.getPetnumber());
+			res = ps.executeQuery();
+		
+			if (res.next()) {
 				
-//				System.out.println(res.next());
 				String Petnumber= res.getString("Petnumber");
 				String Petname= res.getString("Petname");
 				String Petage= res.getString("Petage");
@@ -53,14 +48,25 @@ public class SelectPet {
 						+ Petname+ "\t宠物年龄:" + Petage
 						+ "\t宠物性别:" + Petsex + "\t宠物品种:"
 						+ Petvariety + "\t宠物病例:" + Petcase);
-				PetSystem PetSystem= new PetSystem();
-				PetSystem.PetSystem();
-			}
+			    System.out.println("查询成功，即将返回上一级！");
+			    
+				PetSystem petSystem = new PetSystem();
+				petSystem.PetSystem();
+			}else {
+				 System.err.println("查询失败，该宠物号不存在，即将返回上一级！");
+				 
+				 PetSystem petSystem = new PetSystem();
+				 petSystem.PetSystem();
+			 }
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
 			if(res != null){try {
+				
+				
 				res.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

@@ -53,7 +53,7 @@ public class ManagePetTrade {
 				new Scanner(System.in).nextLine();// 停顿一下
 				managePetTrade();
 			}
-			System.err.println("数据库中无此信息,请返回确认后重试");
+			System.err.println("数据库中无此信息,请输入任意返回,确认后重试!");
 			new Scanner(System.in).nextLine();// 停顿一下
 			managePetTrade();
 		}else if (choose.equals("3")) {
@@ -67,7 +67,7 @@ public class ManagePetTrade {
 			System.out.println("系统退出成功!感谢您的使用!期待下次与您相伴!^_^");
 			System.exit(-1);
 		}else {
-			System.err.println("请输入正确的选项!(1-6)输入回车继续");
+			System.err.println("请输入正确的选项!(1-5)!输入任意返回订单模块!");
 			new Scanner(System.in).nextLine();// 停顿一下
 			managePetTrade();
 		}

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class findpassword {
 	public void findpassword(){
-		System.out.println("欢迎找回密码界面");
+		System.out.println("======欢迎找回密码界面======");
 		 System.out.println("请输入要找回的手机号：");
 		 Scanner userInput =new Scanner(System.in);
 		User user=new User();  

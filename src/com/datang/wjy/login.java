@@ -18,7 +18,7 @@ public class login {
 	public  void login() throws Exception{
 		Scanner userInput =new Scanner(System.in);
 		User user=new User();  
-		System.out.println("欢迎进入登录界面");
+		System.out.println("======欢迎进入登录界面======");
 		System.out.println("请输入用户名：");
 		user.setYonghu(userInput.nextLine().trim());
 		int num=0;

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class establish {
 	public void establish() throws Exception{
-		System.out.println("欢迎进入创建订单界面");
+		System.out.println("======欢迎进入创建订单界面======");
 		Scanner userInput =new Scanner(System.in);
 		deal deal=new deal();  
 		System.out.println("请输入甲方：");
@@ -56,7 +56,7 @@ public class establish {
 	        else{
 	       	System.err.println("创建失败！");
 	       	pet pet=new pet();
-        	pet.pet();
+        	establish();
 	        }
 			
 	        con.close();
